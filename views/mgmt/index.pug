@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+  div.content
+    h1= title
+    div.project-list
+      table.project-list-table
+        each reference, index in references
+          tr
+            td= reference.title
+            td 
+              a(href="/mgmt/update/"+reference.id) edit

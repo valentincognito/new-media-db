@@ -1,0 +1,32 @@
+extends ../layout
+
+block content
+  div.content
+    div.project-details
+      input.title(type=text value=reference.title)
+      h4 client
+      select.company
+        option(value="unknown") -
+        each company in companies
+          if(reference.company._id.toString() == company._id.toString())
+            option(value=company.id selected)= company.name
+          else
+            option(value=company.id)= company.name
+      h4 date
+      input.date(type=text value=reference.date)
+      h4 categories
+      each category in categories
+        span.tag.category(class={active: reference.tags.category.indexOf(category.id) > -1} data-id=category.id)= category.name
+      h4 fields
+      each field in fields
+        span.tag.field(class={active: reference.tags.field.indexOf(field.id) > -1} data-id=field.id)= field.name
+      h4 technos
+      each techno in technos
+        span.tag.techno(class={active: reference.tags.techno.indexOf(techno.id) > -1} data-id=techno.id)= techno.name 
+      h4 visuals
+      each visual in visuals
+        span.tag.visual(class={active: reference.tags.visual.indexOf(visual.id) > -1} data-id=visual.id)= visual.name
+    button.submit submit
+      
+block scripts
+  script(src="/js/mgmt/update_reference.js")

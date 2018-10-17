@@ -1,10 +1,10 @@
 const mongoose = require('mongoose')
 
 const ReferenceSchema = new mongoose.Schema({
-  name: {type: String, required: true},
   title: String,
   description: String,
   date: Date,
+  thumbnails: [String],
   views: Number,
   company: {type: mongoose.Schema.Types.ObjectId, ref: 'Company'},
   tags: {
