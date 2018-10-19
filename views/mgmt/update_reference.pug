@@ -9,9 +9,8 @@ block content
       input.description(type=text value=reference.description)
       h4 client
       select.company
-        option(value="unknown") -
         each company in companies
-          if(reference.company._id.toString() == company._id.toString())
+          if(reference.company && reference.company._id.toString() == company._id.toString())
             option(value=company.id selected)= company.name
           else
             option(value=company.id)= company.name

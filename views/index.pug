@@ -1,5 +1,21 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  div.content
+    div.references-wrapper
+      each reference in references
+        div.box
+          div.thumbnail-outer
+            img(src="/images/references/"+reference.thumbnails[0])
+          div.info
+            h2= reference.title
+            p= reference.description
+            - let date = new Date(reference.date)
+            div.extra
+              span.date= date.getMonth() + "/" + date.getDate() + "/" + date.getFullYear()
+              span.views= reference.views
+            div.tags
+              span= reference.tags.category[0].name
+              span= reference.tags.field[0].name
+              span= reference.tags.techno[0].name
+              span= reference.tags.visual[0].name

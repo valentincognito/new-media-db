@@ -1,9 +1,26 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express')
+const router = express.Router()
+const Reference = require('../models/reference')
 
-/* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+  Reference.
+    find().
+    populate([
+      {path: 'tags.category'},
+      {path: 'tags.field'},
+      {path: 'tags.techno'},
+      {path: 'tags.visual'}
+    ]).
+    exec(function (error, references) {
+      if (error) {
+        return next(error)
+      } else {
+        return res.render('index', {
+          title: 'Home',
+          references: references
+        })
+      }
+    })
+})
 
-module.exports = router;
+module.exports = router
