@@ -13,6 +13,7 @@ $(function () {
     let fields = []
     let technos = []
     let visuals = []
+    let thumbnails = []
 
     $('.project-details .category.active').each(function() {
       categories.push($(this).attr('data-id'))
@@ -30,13 +31,19 @@ $(function () {
       visuals.push($(this).attr('data-id'))
     })
 
+    $('.project-details .thumbnail').each(function() {
+      thumbnails.push($(this).val())
+    })
+
     $.ajax({
       url: '/mgmt/update_reference',
       type: 'PUT',
       data: {
         referenceId: referenceId,
         title: $('.project-details .title').val(),
+        description: $('.project-details .description').val(),
         date: $('.project-details .date').val(),
+        thumbnails: thumbnails,
         company: $('.project-details .company').find(":selected").val(),
         categories: categories,
         fields: fields,

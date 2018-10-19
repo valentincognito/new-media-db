@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville|Open+Sans:700,800');
+
 *,
 *:after,
 *:before {
@@ -6,7 +8,7 @@
   box-sizing: border-box;
 }
 html{height: 100%;font-family: 'Open Sans', sans-serif;font-size: 15px;font-weight: 400;word-break: keep-all;}
-body{margin: 0px;color: #000;background-color: #f1f1f1;}
+body{margin: 0px;color: #000;background-color: #f7f7f7;}
 
 a {background-color: transparent;text-decoration: none;color: inherit;display: block;opacity: 1;transition: all 0.2s ease-in-out;}
 a:active,

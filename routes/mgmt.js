@@ -39,11 +39,15 @@ router.put('/update_reference', function(req, res, next) {
   Reference.findById(req.body.referenceId, function (err, reference) {
     reference.company = req.body.company
     reference.title = req.body.title
+    reference.description = req.body.description
     reference.date = req.body.date
+    reference.thumbnails = req.body.thumbnails
     reference.tags.category = req.body.categories
     reference.tags.field = req.body.fields
     reference.tags.techno = req.body.technos
     reference.tags.visual = req.body.visuals
+    reference.views = 0
+    reference.isVisible = true
     reference.save()
     return res.send(reference)
   })
