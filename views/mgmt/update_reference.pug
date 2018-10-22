@@ -2,11 +2,15 @@ extends ../layout
 
 block content
   div.content
+    h2
+      a(href="/mgmt") home
     div.project-details
       h4 title
       input.title(type=text value=reference.title)
       h4 description
-      input.description(type=text value=reference.description)
+      textarea.description(maxlength="180")= reference.description
+      h4 url
+      input.url(type=text value=reference.url)
       h4 client
       select.company
         each company in companies

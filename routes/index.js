@@ -5,6 +5,7 @@ const Reference = require('../models/reference')
 router.get('/', function(req, res, next) {
   Reference.
     find().
+    sort('-date').
     populate([
       {path: 'tags.category'},
       {path: 'tags.field'},

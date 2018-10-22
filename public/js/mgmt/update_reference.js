@@ -42,6 +42,7 @@ $(function () {
         referenceId: referenceId,
         title: $('.project-details .title').val(),
         description: $('.project-details .description').val(),
+        url: $('.project-details .url').val(),
         date: $('.project-details .date').val(),
         thumbnails: thumbnails,
         company: $('.project-details .company').find(":selected").val(),

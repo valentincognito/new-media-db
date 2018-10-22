@@ -4,6 +4,7 @@ const ReferenceSchema = new mongoose.Schema({
   title: String,
   description: String,
   date: Date,
+  url: String,
   thumbnails: [String],
   views: Number,
   company: {type: mongoose.Schema.Types.ObjectId, ref: 'Company'},

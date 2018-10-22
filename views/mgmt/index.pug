@@ -3,6 +3,7 @@ extends ../layout
 block content
   div.content
     h1= title
+    button.new(type="button") new
     div.project-list
       table.project-list-table
         each reference, index in references
@@ -10,3 +11,6 @@ block content
             td= reference.title
             td 
               a(href="/mgmt/update/"+reference.id) edit
+
+block scripts
+  script(src="/js/mgmt/index.js")

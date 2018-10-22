@@ -4,18 +4,21 @@ block content
   div.content
     div.references-wrapper
       each reference in references
-        div.box
-          div.thumbnail-outer
-            img(src="/images/references/"+reference.thumbnails[0])
-          div.info
-            h2= reference.title
-            p= reference.description
-            - let date = new Date(reference.date)
-            div.extra
-              span.date= date.getMonth() + "/" + date.getDate() + "/" + date.getFullYear()
-              span.views= reference.views
-            div.tags
-              span= reference.tags.category[0].name
-              span= reference.tags.field[0].name
-              span= reference.tags.techno[0].name
-              span= reference.tags.visual[0].name
+        if(reference.title)
+          div.box
+            a(href=reference.url target="_blank")
+              div.thumbnail-outer
+                img(src="/images/references/"+reference.thumbnails[0])
+            div.info
+              h2= reference.title
+              p= reference.description
+              - let date = new Date(reference.date)
+              div.extra
+                - let month = date.getMonth() + 1
+                span.date=  month.toString().padStart(2, '0') + "/" + date.getDate().toString().padStart(2, '0') + "/" + date.getFullYear()
+                span.views= reference.views
+              div.tags
+                span= reference.tags.category[0].name
+                span= reference.tags.field[0].name
+                span= reference.tags.techno[0].name
+                span= reference.tags.visual[0].name
