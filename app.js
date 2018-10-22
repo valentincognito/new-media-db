@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const createError = require('http-errors')
 const express = require('express')
 const path = require('path')
@@ -27,7 +29,9 @@ app.use('/mgmt', mgmtRouter)
 app.use('/users', usersRouter)
 
 //connect to MongoDB
-mongoose.connect('mongodb://does.iptime.org/hibou')
+mongoose.connect('mongodb://'+process.env.DB_USER+':'+process.env.DB_PWD+'@'+process.env.DB_HOST+'/hibou', {
+  useNewUrlParser: true
+})
 const db = mongoose.connection
 
 //handle mongo error

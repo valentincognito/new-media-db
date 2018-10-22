@@ -24,4 +24,12 @@ router.get('/', function(req, res, next) {
     })
 })
 
+router.put('/update_view_count', function(req, res, next) {
+    let reference = Reference.findById(req.body.referenceId)
+
+    let ip = req.connection.remoteAddress
+
+    return res.send(ip)
+})
+
 module.exports = router

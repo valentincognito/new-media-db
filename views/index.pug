@@ -5,7 +5,7 @@ block content
     div.references-wrapper
       each reference in references
         if(reference.title)
-          div.box
+          div.box(data-id=reference.id)
             a(href=reference.url target="_blank")
               div.thumbnail-outer
                 img(src="/images/references/"+reference.thumbnails[0])
@@ -22,3 +22,5 @@ block content
                 span= reference.tags.field[0].name
                 span= reference.tags.techno[0].name
                 span= reference.tags.visual[0].name
+block scripts
+  script(src="/js/index.js")
