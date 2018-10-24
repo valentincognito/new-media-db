@@ -1,7 +1,7 @@
 $(function () {
   //globals
-  const pathArray = window.location.pathname.split( '/' );
-  const referenceId = pathArray[3];
+  const pathArray = window.location.pathname.split( '/' )
+  const referenceId = pathArray[3]
 
 	//click events
   $('.new').click(function(){

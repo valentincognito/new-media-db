@@ -4,7 +4,7 @@ block content
   div.content
     div.references-wrapper
       each reference in references
-        if(reference.title)
+        if(reference.thumbnails[0])
           div.box(data-id=reference.id)
             a(href=reference.url target="_blank")
               div.thumbnail-outer
