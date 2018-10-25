@@ -1,6 +1,14 @@
 $(function () {
   //globals
   let thumbInterval, activeThumb, activeThumbSrc
+  let currentPage
+
+  let url = new URL(window.location.href)
+  let p = Number(url.searchParams.get("page")) + 1
+
+  if (!p) p = 1
+
+  $('.pagination .number.active').html(p)
 
   //hover events
   $('.box').mouseenter(function(){

@@ -8,7 +8,15 @@ const Techno = require('../models/techno')
 const Visual = require('../models/visual')
 
 router.get('/', function(req, res, next) {
-  getHomeData()
+  let categoryList = []
+  let fieldList = []
+  let technoList = []
+  let visualList = []
+
+  let page = req.query.page
+  if (page == undefined) page = 0
+
+  getHomeData(page, categoryList, fieldList, technoList, visualList)
     .then(data => {
       return res.render('index', {
         title: 'Home',

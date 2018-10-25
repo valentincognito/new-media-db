@@ -2,7 +2,8 @@ extends layout
 
 block content
   div.header
-    h1 HIBOU
+    h1
+      img(src="images/common/archimed.png")
   div.navigation
     div.search-bar
       ul.filter-menu
@@ -11,6 +12,10 @@ block content
         li field
         li visual
         li client
+      div.search
+        svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512")
+          path(d="M468.1 432.8l-98.2-98.2c26.8-31.6 43-72.4 43-117 0-99.8-81.2-181-181-181s-181 81.2-181 181 81.2 181 181 181c37.2 0 71.8-11.3 100.6-30.6l100.2 100.2c4.9 4.9 11.3 7.3 17.7 7.3s12.8-2.4 17.7-7.3c9.8-9.9 9.8-25.7 0-35.4zM101 217.6c0-72.2 58.8-131 131-131s131 58.8 131 131-58.8 131-131 131c-72.2-.1-131-58.8-131-131z")
+        span search
     div.filter-list.category
       div.inner
         each category in categories
@@ -52,5 +57,12 @@ block content
                 span= reference.tags.field[0].name
                 span= reference.tags.techno[0].name
                 span= reference.tags.visual[0].name
+    div.pagination
+      div.prev prev
+      div.page-info
+        span.number.active
+        span.number /
+        span.number= references.length / 6
+      div.next next
 block scripts
   script(src="/js/index.js")

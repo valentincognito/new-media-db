@@ -24,7 +24,7 @@ app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', indexRouter)
-app.use('/mgmt', mgmtRouter)
+//app.use('/mgmt', mgmtRouter)
 
 //connect to MongoDB
 mongoose.connect('mongodb://'+process.env.DB_USER+':'+process.env.DB_PWD+'@'+process.env.DB_HOST+'/hibou', {
