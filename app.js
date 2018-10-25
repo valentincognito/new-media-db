@@ -10,7 +10,6 @@ const bodyParser = require('body-parser')
 
 var indexRouter = require('./routes/index')
 var mgmtRouter = require('./routes/mgmt')
-var usersRouter = require('./routes/users')
 
 var app = express()
 
@@ -26,7 +25,6 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', indexRouter)
 app.use('/mgmt', mgmtRouter)
-app.use('/users', usersRouter)
 
 //connect to MongoDB
 mongoose.connect('mongodb://'+process.env.DB_USER+':'+process.env.DB_PWD+'@'+process.env.DB_HOST+'/hibou', {

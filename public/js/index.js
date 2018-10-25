@@ -10,8 +10,7 @@ $(function () {
     let base = activeThumbSrc.slice(0, -6)
 
     thumbInterval = setInterval(() => {
-      if (index > 3)
-        index = 1
+      if (index > 3) index = 1
       activeThumb.attr('src', base + '0'+ index +'.jpg')
       index++
     }, 800);

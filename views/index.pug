@@ -1,6 +1,36 @@
 extends layout
 
 block content
+  div.header
+    h1 HIBOU
+  div.navigation
+    div.search-bar
+      ul.filter-menu
+        li category
+        li technology
+        li field
+        li visual
+        li client
+    div.filter-list.category
+      div.inner
+        each category in categories
+          span= category.name
+    div.filter-list.technology
+      div.inner
+        each technology in technos
+          span= technology.name
+    div.filter-list.field
+      div.inner
+        each field in fields
+          span= field.name
+    div.filter-list.visual
+      div.inner
+        each visual in visuals
+          span= visual.name
+    div.filter-list.client
+      div.inner
+        each client in companies
+          span= client.name
   div.content
     div.references-wrapper
       each reference in references
