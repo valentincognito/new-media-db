@@ -124,6 +124,9 @@ a:hover{outline: 0;text-decoration: none;color: inherit;opacity: 0.8;}
   color: #fff;
   background-color: #000;
 }
+.navigation .filter-list span{opacity: 0.25;transition: all 0.2s ease-in-out;}
+.navigation .filter-list span.active{opacity: 1;}
+.navigation .filter-list span:hover{opacity: 0.75;cursor: pointer;}
 .navigation .filter-list.category{background-color: #fa606a;}
 .navigation .filter-list.technology{background-color: #66bd82;}
 .navigation .filter-list.field{background-color: #3a095b;}
