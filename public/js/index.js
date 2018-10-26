@@ -23,13 +23,14 @@ $(function () {
   filters.push(selectedVisuals)
 
   for (cat of filters) {
-    for (el of cat) {
-      $('.filter-list span:contains('+ el +')').addClass('active')
+    if (cat != null) {
+      for (el of cat) {
+        $('.filter-list span:contains('+ el +')').addClass('active')
+      }
     }
   }
 
   if (!currentPage) currentPage = 1
-
   $('.pagination .number.active').html(currentPage)
 
   let prevString
