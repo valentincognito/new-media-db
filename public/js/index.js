@@ -34,11 +34,11 @@ $(function () {
   $('.pagination .number.active').html(currentPage)
 
   let prevString
-  (currentPage != 1) ? prevString = "prev" : prevString = ""
+  (currentPage != 1) ? prevString = "< prev" : prevString = ""
   $('.pagination .prev').html(prevString)
 
   let nextString
-  (currentPage < pageCount) ? nextString = "next" : nextString = ""
+  (currentPage < pageCount) ? nextString = "next >" : nextString = ""
   $('.pagination .next').html(nextString)
 
 
@@ -75,6 +75,9 @@ $(function () {
     let idx = $('.filter-menu li').index($(this))
     $('.filter-list').hide()
     $('.filter-list').eq(idx).toggle()
+
+    $('.filter-menu li').removeClass('active')
+    $(this).addClass('active')
   })
 
   $('.filter-list span').click(function(){

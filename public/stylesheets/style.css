@@ -31,6 +31,11 @@ a:hover{outline: 0;text-decoration: none;color: inherit;opacity: 0.8;}
 /* helpers end  */
 
 /** common **/
+h1{
+  width: 180px;
+  margin: 20px auto 40px;
+}
+
 .header{
   min-width: 1500px;
   margin: 0 auto;
@@ -75,7 +80,7 @@ a:hover{outline: 0;text-decoration: none;color: inherit;opacity: 0.8;}
 
 /** home **/
 .header h1 img{
-  width: 200px;
+  width: 100%;
 }
 .navigation .search-bar{
   position: relative;
@@ -90,13 +95,23 @@ a:hover{outline: 0;text-decoration: none;color: inherit;opacity: 0.8;}
 }
 .navigation .search-bar .filter-menu li{
   display: inline-block;
+  min-width: 150px;
   padding: 35px;
   font-size: 14px;
   font-weight: 800;
+  text-align: center;
   text-transform: uppercase;
+  border-left: 1px solid #f1f1f1;
 }
-.navigation .search-bar .filter-menu li:first-child{padding-left: 0px;}
+.navigation .search-bar .filter-menu li:last-child{border-right: 1px solid #f1f1f1;}
 .navigation .search-bar .filter-menu li:hover{cursor: pointer;}
+
+.navigation .search-bar .filter-menu li.active{color: #fff;}
+.navigation .search-bar .filter-menu li.category.active{background-color: #fa606a;}
+.navigation .search-bar .filter-menu li.technology.active{background-color: #66bd82;}
+.navigation .search-bar .filter-menu li.field.active{background-color: #3a095b;}
+.navigation .search-bar .filter-menu li.visual.active{background-color: #f89952;}
+.navigation .search-bar .filter-menu li.client.active{background-color: #d86ab2;}
 
 .navigation .search-bar .search{
   position: absolute;
@@ -152,6 +167,14 @@ a:hover{outline: 0;text-decoration: none;color: inherit;opacity: 0.8;}
   margin: 0 auto;
   text-align: left;
 }
+.references-wrapper h3{
+  margin: 0px 0px 10px;
+  padding-left: 30px;
+  font-size: 14px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.references-wrapper h3 span{display: inline-block;margin-left: 10px;color: #d2d2d2;}
 .references-wrapper .box{
   display: inline-block;
   vertical-align: top;
@@ -174,7 +197,9 @@ a:hover{outline: 0;text-decoration: none;color: inherit;opacity: 0.8;}
   border-bottom: 1px dotted #ccc;
 }
 .references-wrapper .date{float: left;}
+.references-wrapper .date svg{width: 14px;margin-right: 8px;vertical-align: -2px;fill: #d6d6d6;}
 .references-wrapper .views{float: right;}
+.references-wrapper .views svg{width: 14px;margin-right: 4px;vertical-align: -2px;fill: #d6d6d6;}
 .references-wrapper .tags{
   text-align: left;
   text-transform: uppercase;
@@ -187,6 +212,10 @@ a:hover{outline: 0;text-decoration: none;color: inherit;opacity: 0.8;}
 .references-wrapper .tags span:last-child{margin-right: 0px;}
 
 .pagination{
+  width: 1500px;
+  margin: 0 auto;
+}
+.pagination .inner{
   position: relative;
   width: 200px;
   margin: 30px auto 0px;
