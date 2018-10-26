@@ -24,7 +24,8 @@ app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', indexRouter)
-app.use('/mgmt', mgmtRouter)
+
+if ((process.env.ENV) === 'dev') app.use('/mgmt', mgmtRouter)
 
 //connect to MongoDB
 mongoose.connect('mongodb://'+process.env.DB_USER+':'+process.env.DB_PWD+'@'+process.env.DB_HOST+'/hibou', {
@@ -47,7 +48,7 @@ app.use(function(req, res, next) {
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message
-  res.locals.error = req.app.get('env') === 'development' ? err : {}
+  res.locals.error = (process.env.ENV) === 'dev' ? err : {}
 
   // render the error page
   res.status(err.status || 500)
