@@ -17,15 +17,19 @@ $(function () {
   if (selectedVisuals) selectedVisuals = selectedVisuals.split("+")
 
   let filters = []
-  filters.push(selectedCategories)
-  filters.push(selectedTechnos)
-  filters.push(selectedFields)
-  filters.push(selectedVisuals)
+  filters.push({label: selectedCategories, parent: 'category'})
+  filters.push({label: selectedTechnos, parent: 'technology'})
+  filters.push({label: selectedFields, parent: 'field'})
+  filters.push({label: selectedVisuals, parent: 'visual'})
 
   for (cat of filters) {
-    if (cat != null) {
-      for (el of cat) {
-        $('.filter-list span:contains('+ el +')').addClass('active')
+    if (cat.label != null) {
+      for (el of cat.label) {
+        //fix later
+        $('.selected-filters-list .menu').show()
+
+        $('.filter-list .tags:contains('+ el +')').addClass('active')
+        $('.selected-filters-list .inner .tag-list').append('<span class="tag '+ cat.parent +'">'+ el +'</span>')
       }
     }
   }
@@ -41,10 +45,9 @@ $(function () {
   (currentPage < pageCount) ? nextString = "next >" : nextString = ""
   $('.pagination .next').html(nextString)
 
-
   //hover events
   $('.box').mouseenter(function(){
-    let index = 1
+    let index = 2
     activeThumb = $('.thumbnail-outer img', this)
     activeThumbSrc = activeThumb.attr('src')
     let base = activeThumbSrc.slice(0, -6)
@@ -80,8 +83,15 @@ $(function () {
     $(this).addClass('active')
   })
 
-  $('.filter-list span').click(function(){
+  $('.filter-list .tags').click(function(){
     $(this).toggleClass('active')
+
+    //TODO add tags dynamically
+    // if ($(this).hasClass('active')) {
+    //   $('.selected-filters-list .inner .tag-list').append('<span class="tag">'+ $(this).html() +'</span>')
+    // }else{
+    //
+    // }
   })
 
   $('.navigation .search').click(function(){
@@ -90,16 +100,16 @@ $(function () {
     let fields = []
     let visuals = []
 
-    $('.filter-list.category span.active').each(function(index) {
+    $('.filter-list.category .tags.active').each(function(index) {
       categories.push($(this).html())
     })
-    $('.filter-list.technology span.active').each(function(index) {
+    $('.filter-list.technology .tags.active').each(function(index) {
       technos.push($(this).html())
     })
-    $('.filter-list.field span.active').each(function(index) {
+    $('.filter-list.field .tags.active').each(function(index) {
       fields.push($(this).html())
     })
-    $('.filter-list.visual span.active').each(function(index) {
+    $('.filter-list.visual .tags.active').each(function(index) {
       visuals.push($(this).html())
     })
 

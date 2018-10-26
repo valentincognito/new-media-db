@@ -12,7 +12,7 @@ body{margin: 0px;color: #000;background-color: #fcfcfc;}
 
 a {background-color: transparent;text-decoration: none;color: inherit;display: block;opacity: 1;transition: all 0.2s ease-in-out;}
 a:active,
-a:hover{outline: 0;text-decoration: none;color: inherit;opacity: 0.8;}
+a:hover{outline: 0;text-decoration: none;color: inherit;}
 
 /** helpers **/
 .show{display: block;}
@@ -31,10 +31,7 @@ a:hover{outline: 0;text-decoration: none;color: inherit;opacity: 0.8;}
 /* helpers end  */
 
 /** common **/
-h1{
-  width: 180px;
-  margin: 20px auto 40px;
-}
+h1{width: 180px;margin: 20px auto 40px;}
 
 .header{
   min-width: 1500px;
@@ -102,31 +99,35 @@ h1{
   text-align: center;
   text-transform: uppercase;
   border-left: 1px solid #f1f1f1;
+  transition: background 0.2s ease-in-out;
 }
+.navigation .search-bar .filter-menu li svg{width: 8px;margin-left: 10px;vertical-align: 1px;transform: rotate(90deg);}
 .navigation .search-bar .filter-menu li:last-child{border-right: 1px solid #f1f1f1;}
-.navigation .search-bar .filter-menu li:hover{cursor: pointer;}
-
+.navigation .search-bar .filter-menu li:hover{background-color: #f7f7f7;cursor: pointer;}
 .navigation .search-bar .filter-menu li.active{color: #fff;}
+.navigation .search-bar .filter-menu li.active svg{fill: #fff;}
+
 .navigation .search-bar .filter-menu li.category.active{background-color: #fa606a;}
 .navigation .search-bar .filter-menu li.technology.active{background-color: #66bd82;}
 .navigation .search-bar .filter-menu li.field.active{background-color: #3a095b;}
 .navigation .search-bar .filter-menu li.visual.active{background-color: #f89952;}
 .navigation .search-bar .filter-menu li.client.active{background-color: #d86ab2;}
 
-.navigation .search-bar .search{
+.navigation .search{
   position: absolute;
-  top: 50%;
-  right: 0px;
+  width: 100%;
+  bottom: -50px;
+  left: 0;
   text-align: right;
-  transform: translateY(-50%);
 }
-.navigation .search-bar .search:hover{cursor: pointer;}
-.navigation .search-bar .search svg{
+.navigation .search:hover{cursor: pointer;}
+.navigation .search svg{
   display: inline-block;
   margin-right: 10px;
   width: 16px;
+  fill: #fff;
 }
-.navigation .search-bar .search span{
+.navigation .search span{
   display: inline-block;
   font-size: 18px;
   font-weight: 800;
@@ -139,9 +140,7 @@ h1{
   color: #fff;
   background-color: #000;
 }
-.navigation .filter-list span{opacity: 0.25;transition: all 0.2s ease-in-out;}
-.navigation .filter-list span.active{opacity: 1;}
-.navigation .filter-list span:hover{opacity: 0.75;cursor: pointer;}
+
 .navigation .filter-list.category{background-color: #fa606a;}
 .navigation .filter-list.technology{background-color: #66bd82;}
 .navigation .filter-list.field{background-color: #3a095b;}
@@ -149,17 +148,57 @@ h1{
 .navigation .filter-list.client{background-color: #d86ab2;}
 
 .navigation .filter-list .inner{
+  position: relative;
   width: 1330px;
   margin: 0 auto;
-  text-align: left;
+  text-align: center;
 }
 
-.navigation .filter-list .inner span{
+.navigation .filter-list .inner .tags{
   display: inline-block;
   padding: 20px 60px;
   font-size: 35px;
   font-weight: 800;
   text-transform: uppercase;
+  opacity: 0.25;
+  transition: all 0.2s ease-in-out;
+}
+.navigation .filter-list .inner .tags.active{opacity: 1;}
+.navigation .filter-list .inner .tags:hover{opacity: 0.75;cursor: pointer;}
+
+.navigation .selected-filters-list{
+  background-color: #282828;
+}
+.navigation .selected-filters-list .inner{
+  position: relative;
+  width: 1330px;
+  margin: 0 auto;
+  color: #fff;
+}
+.navigation .selected-filters-list .inner .tag{
+  display: inline-block;
+  margin: 20px 10px;
+  padding: 5px 15px;
+  font-size: 10px;
+  font-weight: 800;
+  border-radius: 25px;
+  text-transform: uppercase;
+}
+.navigation .selected-filters-list .inner .tag.category{background-color: #fa606a;}
+.navigation .selected-filters-list .inner .tag.technology{background-color: #66bd82;}
+.navigation .selected-filters-list .inner .tag.field{background-color: #3a095b;}
+.navigation .selected-filters-list .inner .tag.visual{background-color: #f89952;}
+.navigation .selected-filters-list .inner .tag.client{background-color: #d86ab2;}
+
+.navigation .selected-filters-list .inner .menu{
+  display: none;
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  transform: translateY(-50%);
 }
 
 .references-wrapper{
