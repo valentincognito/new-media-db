@@ -58,11 +58,12 @@ block content
                 span= reference.tags.techno[0].name
                 span= reference.tags.visual[0].name
     div.pagination
-      div.prev prev
+      div.nav.prev
       div.page-info
         span.number.active
         span.number /
-        span.number= references.length / 6
-      div.next next
+        span.number.page-count= Math.ceil(refCount / refPerPage)
+      if(refCount > refPerPage)
+        div.nav.next next
 block scripts
   script(src="/js/index.js")

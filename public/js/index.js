@@ -1,14 +1,23 @@
 $(function () {
   //globals
   let thumbInterval, activeThumb, activeThumbSrc
-  let currentPage
 
   let url = new URL(window.location.href)
-  let p = Number(url.searchParams.get("page")) + 1
+  let currentPage = Number(url.searchParams.get("page"))
+  let pageCount = Number( $('.pagination .page-count').html() )
 
-  if (!p) p = 1
+  if (!currentPage) currentPage = 1
 
-  $('.pagination .number.active').html(p)
+  $('.pagination .number.active').html(currentPage)
+
+  let prevString
+  (currentPage != 1) ? prevString = "prev" : prevString = ""
+  $('.pagination .prev').html(prevString)
+
+  let nextString
+  (currentPage < pageCount) ? nextString = "next" : nextString = ""
+  $('.pagination .next').html(nextString)
+
 
   //hover events
   $('.box').mouseenter(function(){
@@ -34,8 +43,18 @@ $(function () {
       type: 'PUT',
       data: { referenceId: $(this).attr('data-id') },
       success: function(data) {
-        console.log(data.toString());
+        //console.log(data.toString());
       }
     })
+  })
+
+  $('.pagination .next').click(function(){
+    url.searchParams.set("page", currentPage + 1)
+    location.href = url
+  })
+
+  $('.pagination .prev').click(function(){
+    url.searchParams.set("page", currentPage - 1)
+    location.href = url
   })
 })

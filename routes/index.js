@@ -8,30 +8,7 @@ const Techno = require('../models/techno')
 const Visual = require('../models/visual')
 
 router.get('/', function(req, res, next) {
-  let categoryList = []
-  let fieldList = []
-  let technoList = []
-  let visualList = []
-
-  let page = req.query.page
-  if (page == undefined) page = 0
-
-  getHomeData(page, categoryList, fieldList, technoList, visualList)
-    .then(data => {
-      return res.render('index', {
-        title: 'Home',
-        references: data.references,
-        companies: data.companies,
-        categories: data.categories,
-        fields: data.fields,
-        technos: data.technos,
-        visuals: data.visuals
-      })
-    }).catch(error => console.error(error.stack))
-})
-
-router.get('/filter', function(req, res, next) {
-  let page = req.query.page
+  let page = Number(req.query.page) - 1
   if (page == undefined) page = 0
 
   let categories = req.query.categories
@@ -57,6 +34,8 @@ router.get('/filter', function(req, res, next) {
     .then(data => {
       return res.render('index', {
         title: 'Home',
+        refCount: data.refCount,
+        refPerPage: data.refPerPage,
         references: data.references,
         companies: data.companies,
         categories: data.categories,
@@ -111,9 +90,17 @@ async function getHomeData(page, categoryList, fieldList, technoList, visualList
       {path: 'tags.visual'}
     ])
 
-
+  let refCount = await Reference.
+    find({
+      'tags.category': {$in: categoryFilter},
+      'tags.field': {$in: fieldFilter},
+      'tags.techno': {$in: technoFilter},
+      'tags.visual': {$in: visualFilter}
+    }).countDocuments().exec()
 
   return{
+    refCount: refCount,
+    refPerPage: perPage,
     references: references,
     companies: companies,
     categories: categories,

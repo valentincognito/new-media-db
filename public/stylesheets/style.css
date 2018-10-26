@@ -192,18 +192,14 @@ a:hover{outline: 0;text-decoration: none;color: inherit;opacity: 0.8;}
   text-align: center;
   text-transform: uppercase;
 }
-.pagination .prev{
+.pagination .nav{
   position: absolute;
   top: 50%;
-  left: 0px;
   transform: translateY(-50%);
 }
-.pagination .next{
-  position: absolute;
-  top: 50%;
-  right: 0px;
-  transform: translateY(-50%);
-}
+.pagination .nav:hover{cursor: pointer;}
+.pagination .prev{left: 0px;}
+.pagination .next{right: 0px;}
 .pagination .number{
   font-size: 30px;
   color: #d5d5d5;
