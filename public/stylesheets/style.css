@@ -51,7 +51,8 @@ h1{width: 180px;margin: 20px auto 40px;}
 }
 .content{
   position: relative;
-  width: 1500px;
+  min-width: 1500px;
+  margin: 0 auto;
   padding: 50px;
   background-color: #f7f7f7;
 }
