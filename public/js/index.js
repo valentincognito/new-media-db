@@ -63,6 +63,13 @@ $(function () {
   })
 
 	//click events
+  $(document).click(function(e) {
+    if ( $(e.target).closest('.navigation').length === 0 ) {
+      $('.filter-menu li').removeClass('active')
+      $('.filter-list').hide()
+    }
+  })
+
   $('.box').click(function(){
     $.ajax({
       url: '/update_view_count',
@@ -130,5 +137,14 @@ $(function () {
   $('.pagination .prev').click(function(){
     url.searchParams.set("page", currentPage - 1)
     location.href = url
+  })
+
+  $('.box .copy-link').click(function(){
+    let tempInput = document.createElement('INPUT')
+    $('body').append(tempInput)
+    tempInput.setAttribute('value', $(this).next().attr('href'))
+    tempInput.select()
+    document.execCommand('copy')
+    tempInput.remove()
   })
 })
