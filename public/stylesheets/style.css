@@ -402,3 +402,27 @@ h1{width: 180px;margin: 20px auto 40px;}
   color: #d5d5d5;
 }
 .pagination .number.active{color: #000;}
+
+.footer{
+  width: 100%;
+  background-color: #282828;
+}
+.footer .inner{
+  width: 1330px;
+  margin: 0 auto;
+  padding: 80px 0px 150px;
+  font-family: 'Libre Baskerville';
+  font-size: 12px;
+  color: #7c7c7c;
+  text-align: center;
+}
+.footer .inner .description{line-height: 22px;}
+.footer .inner .description a{display: inline-block;color: #f89952;}
+.footer .inner .copyright{margin: 20px 0px 40px;font-size: 10px;}
+.footer .inner .authors a{display: inline-block;}
+.footer .inner .authors svg{
+  width: 40px;
+  margin: 0px 10px;
+  fill: #dadada;
+}
+.footer .inner .authors p{margin: 0px;font-family: 'Open Sans';color: #dadada;}
