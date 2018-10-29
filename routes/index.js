@@ -15,6 +15,7 @@ router.get('/', function(req, res, next) {
   let fields = req.query.fields
   let technos = req.query.technos
   let visuals = req.query.visuals
+  let title = req.query.title
 
   let categoryList = []
   let fieldList = []
@@ -30,7 +31,7 @@ router.get('/', function(req, res, next) {
   if (visuals)
     visualList = visuals.split("+")
 
-  getHomeData(page, categoryList, fieldList, technoList, visualList)
+  getHomeData(page, title, categoryList, fieldList, technoList, visualList)
     .then(data => {
       return res.render('index', {
         title: 'Home',
@@ -55,7 +56,7 @@ router.put('/update_view_count', function(req, res, next) {
 })
 
 //get all the data needed home page
-async function getHomeData(page, categoryList, fieldList, technoList, visualList) {
+async function getHomeData(page, title, categoryList, fieldList, technoList, visualList) {
   //globals
   let perPage = 6
 
@@ -75,6 +76,7 @@ async function getHomeData(page, categoryList, fieldList, technoList, visualList
 
   let references = await Reference.
     find({
+      title:{ $regex: new RegExp(title), $options: 'i' },
       'tags.category': {$in: categoryFilter},
       'tags.field': {$in: fieldFilter},
       'tags.techno': {$in: technoFilter},
@@ -92,6 +94,7 @@ async function getHomeData(page, categoryList, fieldList, technoList, visualList
 
   let refCount = await Reference.
     find({
+      title:{ $regex: new RegExp(title), $options: 'i' },
       'tags.category': {$in: categoryFilter},
       'tags.field': {$in: fieldFilter},
       'tags.techno': {$in: technoFilter},

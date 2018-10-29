@@ -81,6 +81,20 @@ $(function () {
     })
   })
 
+  $('.title-search input').on('keyup', function (e) {
+    if (e.keyCode == 13) {
+      let title = $(this).val()
+      url.searchParams.set("title", title)
+      location.href = url
+    }
+  })
+
+  $('.title-search-submit').click(function(){
+    let title = $('.title-search input').val()
+    url.searchParams.set("title", title)
+    location.href = url
+  })
+
   $('.filter-menu li').click(function(){
     let idx = $('.filter-menu li').index($(this))
     $('.filter-list').hide()

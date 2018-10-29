@@ -58,6 +58,11 @@ h1{width: 180px;margin: 20px auto 40px;}
 }
 
 /** admin **/
+.similar-refs span{
+  display: block;
+  font-size: 12px;
+  color: #fb6a22;
+}
 .project-details{
   margin-bottom: 30px;
 }
@@ -114,6 +119,34 @@ h1{width: 180px;margin: 20px auto 40px;}
 .navigation .search-bar .filter-menu li.field.active{background-color: #3a095b;}
 .navigation .search-bar .filter-menu li.visual.active{background-color: #f89952;}
 .navigation .search-bar .filter-menu li.client.active{background-color: #d86ab2;}
+
+.navigation .title-search{
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  transform: translateY(-50%);
+}
+.navigation .title-search input{
+  width: 200px;
+  font-family: 'Open Sans';
+  font-size: 14px;
+  text-transform: uppercase;
+  text-align: right;
+  border: none;
+  outline: none;
+}
+.navigation .title-search input::placeholder {
+  color: #ccc;
+}
+.navigation .title-search svg{
+  display: inline-block;
+  margin-left: 15px;
+  width: 16px;
+  fill: #000;
+  vertical-align: -4px;
+}
+.navigation .title-search svg:hover{cursor: pointer;}
+
 
 .navigation .search{
   position: absolute;

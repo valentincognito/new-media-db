@@ -4,6 +4,22 @@ $(function () {
   const referenceId = pathArray[3];
 
 	//click events
+  $('.check-title').click(function(){
+    $.ajax({
+      url: '/mgmt/check_duplicate',
+      type: 'POST',
+      data: {
+        title: $('.project-details .title').val(),
+      },
+      success: function(data) {
+        $('.similar-refs').empty()
+        for (ref of data) {
+          $('.similar-refs').append('<span>'+ref.title+'</span>')
+        }
+      }
+    })
+  })
+
   $('.tag').click(function(){
     $(this).toggleClass('active')
   })

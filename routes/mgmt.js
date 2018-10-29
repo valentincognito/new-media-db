@@ -8,15 +8,11 @@ const Techno = require('../models/techno')
 const Visual = require('../models/visual')
 
 router.get('/', function(req, res, next) {
-  Reference.find(function (error, references) {
-    if (error) {
-      return next(error)
-    } else {
-      return res.render('mgmt/index', {
-        title: 'References',
-        references: references
-      })
-    }
+  Reference.find().sort('title').then(references => {
+    return res.render('mgmt/index', {
+      title: 'References',
+      references: references
+    })
   })
 })
 
@@ -39,6 +35,12 @@ router.put('/add_reference', function(req, res, next) {
     reference = new Reference()
     reference.save()
     return res.send(reference)
+})
+
+router.post('/check_duplicate', function(req, res, next) {
+  Reference.find({ title: { $regex: new RegExp(req.body.title), $options: 'i' } }).then(reference => {
+    return res.send(reference)
+  })
 })
 
 router.put('/update_reference', function(req, res, next) {
