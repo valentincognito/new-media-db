@@ -24,10 +24,8 @@ $(function () {
 
   for (cat of filters) {
     if (cat.label != null) {
+      $('.selected-filters-list').show()
       for (el of cat.label) {
-        //fix later
-        $('.selected-filters-list .menu').show()
-
         $('.filter-list .tags:contains('+ el +')').addClass('active')
         $('.selected-filters-list .inner .tag-list').append('<span class="tag '+ cat.parent +'">'+ el +'</span>')
       }
@@ -49,17 +47,21 @@ $(function () {
   $('.box').mouseenter(function(){
     let index = 2
     activeThumb = $('.thumbnail-outer img', this)
-    activeThumbSrc = activeThumb.attr('src')
-    let base = activeThumbSrc.slice(0, -6)
+    if (activeThumb != undefined) {
+      activeThumbSrc = activeThumb.attr('src')
+      let base = activeThumbSrc.slice(0, -6)
 
-    thumbInterval = setInterval(() => {
-      if (index > 3) index = 1
-      activeThumb.attr('src', base + '0'+ index +'.jpg')
-      index++
-    }, 800);
+      thumbInterval = setInterval(() => {
+        if (index > 3) index = 1
+        activeThumb.attr('src', base + '0'+ index +'.jpg')
+        index++
+      }, 800)
+    }
   }).mouseleave(function() {
-    activeThumb.attr('src', activeThumbSrc)
-    clearInterval(thumbInterval)
+    if (activeThumb != undefined) {
+      activeThumb.attr('src', activeThumbSrc)
+      clearInterval(thumbInterval)
+    }
   })
 
 	//click events
@@ -81,6 +83,7 @@ $(function () {
     })
   })
 
+  //search by title on enter key
   $('.title-search input').on('keyup', function (e) {
     if (e.keyCode == 13) {
       let title = $(this).val()
@@ -107,15 +110,23 @@ $(function () {
   $('.filter-list .tags').click(function(){
     $(this).toggleClass('active')
 
-    //TODO add tags dynamically
-    // if ($(this).hasClass('active')) {
-    //   $('.selected-filters-list .inner .tag-list').append('<span class="tag">'+ $(this).html() +'</span>')
-    // }else{
-    //
-    // }
+    //add tags dynamically
+    if ($(this).hasClass('active')) {
+      let tagColor = $(this).closest('.filter-list').css('background-color')
+      $('.selected-filters-list .inner .tag-list').append('<span class="tag" style="background:'+tagColor+'">'+ $(this).html() +'</span>')
+    }else{
+      $('.selected-filters-list .inner .tag-list .tag:contains('+ $(this).html() +')').remove()
+    }
+
+    //show / hide UI if tags are selected
+    if ($('.selected-filters-list .tag').length > 0) {
+      $('.selected-filters-list').show()
+    }else{
+      $('.selected-filters-list').hide()
+    }
   })
 
-  $('.navigation .search').click(function(){
+  $('.selected-filters-list .filter-search').click(function(){
     let categories = []
     let technos = []
     let fields = []

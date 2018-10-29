@@ -139,7 +139,7 @@ h1{width: 180px;margin: 20px auto 40px;}
 
 .navigation .search-bar .filter-menu li.category.active{background-color: #fa606a;}
 .navigation .search-bar .filter-menu li.technology.active{background-color: #66bd82;}
-.navigation .search-bar .filter-menu li.field.active{background-color: #3a095b;}
+.navigation .search-bar .filter-menu li.field.active{background-color: #7b2cb1;}
 .navigation .search-bar .filter-menu li.visual.active{background-color: #f89952;}
 .navigation .search-bar .filter-menu li.client.active{background-color: #d86ab2;}
 
@@ -170,28 +170,6 @@ h1{width: 180px;margin: 20px auto 40px;}
 }
 .navigation .title-search svg:hover{cursor: pointer;}
 
-
-.navigation .search{
-  position: absolute;
-  width: 100%;
-  bottom: -50px;
-  left: 0;
-  text-align: right;
-}
-.navigation .search:hover{cursor: pointer;}
-.navigation .search svg{
-  display: inline-block;
-  margin-right: 10px;
-  width: 16px;
-  fill: #fff;
-}
-.navigation .search span{
-  display: inline-block;
-  font-size: 18px;
-  font-weight: 800;
-  text-transform: uppercase;
-}
-
 .navigation .filter-list{
   display: none;
   padding: 80px 0px;
@@ -201,7 +179,7 @@ h1{width: 180px;margin: 20px auto 40px;}
 
 .navigation .filter-list.category{background-color: #fa606a;}
 .navigation .filter-list.technology{background-color: #66bd82;}
-.navigation .filter-list.field{background-color: #3a095b;}
+.navigation .filter-list.field{background-color: #7b2cb1;}
 .navigation .filter-list.visual{background-color: #f89952;}
 .navigation .filter-list.client{background-color: #d86ab2;}
 
@@ -225,6 +203,7 @@ h1{width: 180px;margin: 20px auto 40px;}
 .navigation .filter-list .inner .tags:hover{opacity: 0.75;cursor: pointer;}
 
 .navigation .selected-filters-list{
+  display: none;
   background-color: #282828;
 }
 .navigation .selected-filters-list .inner{
@@ -232,6 +211,11 @@ h1{width: 180px;margin: 20px auto 40px;}
   width: 1330px;
   margin: 0 auto;
   color: #fff;
+}
+.navigation .selected-filters-list .tag-list{
+  width: 1050px;
+  height: 65px;
+  overflow: hidden;
 }
 .navigation .selected-filters-list .inner .tag{
   display: inline-block;
@@ -244,19 +228,43 @@ h1{width: 180px;margin: 20px auto 40px;}
 }
 .navigation .selected-filters-list .inner .tag.category{background-color: #fa606a;}
 .navigation .selected-filters-list .inner .tag.technology{background-color: #66bd82;}
-.navigation .selected-filters-list .inner .tag.field{background-color: #3a095b;}
+.navigation .selected-filters-list .inner .tag.field{background-color: #7b2cb1;}
 .navigation .selected-filters-list .inner .tag.visual{background-color: #f89952;}
 .navigation .selected-filters-list .inner .tag.client{background-color: #d86ab2;}
 
 .navigation .selected-filters-list .inner .menu{
-  display: none;
+  position: absolute;
+  top: 50%;
+  right: 180px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: underline;
+  transform: translateY(-50%);
+}
+.selected-filters-list .filter-search{
   position: absolute;
   top: 50%;
   right: 0px;
+  padding: 20px;
   font-size: 13px;
   font-weight: 800;
   text-transform: uppercase;
   transform: translateY(-50%);
+  background: #191919;
+}
+.selected-filters-list .filter-search:hover{cursor: pointer;}
+.selected-filters-list .filter-search svg{
+  display: inline-block;
+  margin-right: 10px;
+  width: 16px;
+  fill: #fff;
+}
+.selected-filters-list .filter-search span{
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 800;
+  text-transform: uppercase;
 }
 
 .references-wrapper{
@@ -339,7 +347,7 @@ h1{width: 180px;margin: 20px auto 40px;}
 }
 .references-wrapper .tags span{margin-right: 15px;font-size: 14px;font-weight: 800;}
 .references-wrapper .tags span:nth-child(1){color: #fa606a;}
-.references-wrapper .tags span:nth-child(2){color: #3a095b;}
+.references-wrapper .tags span:nth-child(2){color: #7b2cb1;}
 .references-wrapper .tags span:nth-child(3){color: #66bd82;}
 .references-wrapper .tags span:nth-child(4){color: #f89952;}
 .references-wrapper .tags span:last-child{margin-right: 0px;}

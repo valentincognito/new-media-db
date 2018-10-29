@@ -33,47 +33,27 @@ block content
       div.inner
         each category in categories
           span.tags= category.name
-        div.search
-          svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512")
-            path(d="M468.1 432.8l-98.2-98.2c26.8-31.6 43-72.4 43-117 0-99.8-81.2-181-181-181s-181 81.2-181 181 81.2 181 181 181c37.2 0 71.8-11.3 100.6-30.6l100.2 100.2c4.9 4.9 11.3 7.3 17.7 7.3s12.8-2.4 17.7-7.3c9.8-9.9 9.8-25.7 0-35.4zM101 217.6c0-72.2 58.8-131 131-131s131 58.8 131 131-58.8 131-131 131c-72.2-.1-131-58.8-131-131z")
-          span.small search
     div.filter-list.technology
       div.inner
         each technology in technos
           span.tags= technology.name
-        div.search
-          svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512")
-            path(d="M468.1 432.8l-98.2-98.2c26.8-31.6 43-72.4 43-117 0-99.8-81.2-181-181-181s-181 81.2-181 181 81.2 181 181 181c37.2 0 71.8-11.3 100.6-30.6l100.2 100.2c4.9 4.9 11.3 7.3 17.7 7.3s12.8-2.4 17.7-7.3c9.8-9.9 9.8-25.7 0-35.4zM101 217.6c0-72.2 58.8-131 131-131s131 58.8 131 131-58.8 131-131 131c-72.2-.1-131-58.8-131-131z")
-          span.small search
     div.filter-list.field
       div.inner
         each field in fields
           span.tags= field.name
-        div.search
-          svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512")
-            path(d="M468.1 432.8l-98.2-98.2c26.8-31.6 43-72.4 43-117 0-99.8-81.2-181-181-181s-181 81.2-181 181 81.2 181 181 181c37.2 0 71.8-11.3 100.6-30.6l100.2 100.2c4.9 4.9 11.3 7.3 17.7 7.3s12.8-2.4 17.7-7.3c9.8-9.9 9.8-25.7 0-35.4zM101 217.6c0-72.2 58.8-131 131-131s131 58.8 131 131-58.8 131-131 131c-72.2-.1-131-58.8-131-131z")
-          span.small search
     div.filter-list.visual
       div.inner
         each visual in visuals
           span.tags= visual.name
-        div.search
-          svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512")
-            path(d="M468.1 432.8l-98.2-98.2c26.8-31.6 43-72.4 43-117 0-99.8-81.2-181-181-181s-181 81.2-181 181 81.2 181 181 181c37.2 0 71.8-11.3 100.6-30.6l100.2 100.2c4.9 4.9 11.3 7.3 17.7 7.3s12.8-2.4 17.7-7.3c9.8-9.9 9.8-25.7 0-35.4zM101 217.6c0-72.2 58.8-131 131-131s131 58.8 131 131-58.8 131-131 131c-72.2-.1-131-58.8-131-131z")
-          span.small search
-    div.filter-list.client
-      div.inner
-        each client in companies
-          span.tags= client.name
-        div.search
-          svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512")
-            path(d="M468.1 432.8l-98.2-98.2c26.8-31.6 43-72.4 43-117 0-99.8-81.2-181-181-181s-181 81.2-181 181 81.2 181 181 181c37.2 0 71.8-11.3 100.6-30.6l100.2 100.2c4.9 4.9 11.3 7.3 17.7 7.3s12.8-2.4 17.7-7.3c9.8-9.9 9.8-25.7 0-35.4zM101 217.6c0-72.2 58.8-131 131-131s131 58.8 131 131-58.8 131-131 131c-72.2-.1-131-58.8-131-131z")
-          span.small search
     div.selected-filters-list
       div.inner
         div.tag-list
         div.menu
-          a(href="/") x reset
+          a(href="/") reset
+        div.filter-search
+          svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512")
+            path(d="M468.1 432.8l-98.2-98.2c26.8-31.6 43-72.4 43-117 0-99.8-81.2-181-181-181s-181 81.2-181 181 81.2 181 181 181c37.2 0 71.8-11.3 100.6-30.6l100.2 100.2c4.9 4.9 11.3 7.3 17.7 7.3s12.8-2.4 17.7-7.3c9.8-9.9 9.8-25.7 0-35.4zM101 217.6c0-72.2 58.8-131 131-131s131 58.8 131 131-58.8 131-131 131c-72.2-.1-131-58.8-131-131z")
+          span.small refresh
   div.content
     div.references-wrapper
       h3 latest articles
