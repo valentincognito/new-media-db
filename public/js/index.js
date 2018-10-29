@@ -88,6 +88,7 @@ $(function () {
     if (e.keyCode == 13) {
       let title = $(this).val()
       url.searchParams.set("title", title)
+      url.searchParams.set("page", 1)
       location.href = url
     }
   })
@@ -95,6 +96,7 @@ $(function () {
   $('.title-search-submit').click(function(){
     let title = $('.title-search input').val()
     url.searchParams.set("title", title)
+    url.searchParams.set("page", 1)
     location.href = url
   })
 
