@@ -160,5 +160,15 @@ $(function () {
     tempInput.select()
     document.execCommand('copy')
     tempInput.remove()
+
+    showNotification('link save in your clipboard !')
   })
+
+  function showNotification(text){
+    $('.notification').empty().html(text)
+    $('.notification').addClass('open')
+    setTimeout(() => {
+      $('.notification').removeClass('open')
+    }, 2000);
+  }
 })

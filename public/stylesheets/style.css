@@ -83,6 +83,29 @@ h1{width: 180px;margin: 20px auto 40px;}
 }
 
 /** home **/
+.notification{
+  position: fixed;
+  width: 100%;
+  bottom: 0px;
+  left: 0;
+  padding: 15px 0px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 0.5px;
+  color: #fff;
+  background: rgba(102, 189, 130, 1);
+  z-index: 100;
+  visibility: none;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+}
+.notification.open{
+  visibility: visible;
+  opacity: 1;
+}
+
 .header h1 img{
   width: 100%;
 }
