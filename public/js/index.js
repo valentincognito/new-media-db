@@ -2,6 +2,8 @@ $(function () {
   //globals
   let thumbInterval, activeThumb, activeThumbSrc
 
+  let svgCloseIcon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M291.4 256L483.9 63.4c9.8-9.8 9.8-25.6 0-35.4-9.8-9.8-25.6-9.8-35.4 0L256 220.6 63.4 28.1c-9.8-9.8-25.6-9.8-35.4 0-9.8 9.8-9.8 25.6 0 35.4L220.6 256 28.1 448.6c-9.8 9.8-9.8 25.6 0 35.4 4.9 4.9 11.3 7.3 17.7 7.3s12.8-2.4 17.7-7.3L256 291.4 448.6 484c4.9 4.9 11.3 7.3 17.7 7.3s12.8-2.4 17.7-7.3c9.8-9.8 9.8-25.6 0-35.4L291.4 256z"/></svg>'
+
   let url = new URL(window.location.href)
   let currentPage = Number(url.searchParams.get("page"))
   let pageCount = Number($('.pagination .page-count').html())
@@ -27,7 +29,7 @@ $(function () {
       $('.selected-filters-list').show()
       for (el of cat.label) {
         $('.filter-list .tags:contains('+ el +')').addClass('active')
-        $('.selected-filters-list .inner .tag-list').append('<span class="tag '+ cat.parent +'">'+ el +'</span>')
+        $('.selected-filters-list .inner .tag-list').append('<span class="tag '+ cat.parent +'" data-content="'+ el +'">'+ el + svgCloseIcon +'</span>')
       }
     }
   }
@@ -115,7 +117,7 @@ $(function () {
     //add tags dynamically
     if ($(this).hasClass('active')) {
       let tagColor = $(this).closest('.filter-list').css('background-color')
-      $('.selected-filters-list .inner .tag-list').append('<span class="tag" style="background:'+tagColor+'">'+ $(this).html() +'</span>')
+      $('.selected-filters-list .inner .tag-list').append('<span class="tag" data-content="'+ $(this).html() +'" style="background:'+tagColor+'">'+ $(this).html() + svgCloseIcon + '</span>')
     }else{
       $('.selected-filters-list .inner .tag-list .tag:contains('+ $(this).html() +')').remove()
     }
@@ -126,6 +128,12 @@ $(function () {
     }else{
       $('.selected-filters-list').hide()
     }
+  })
+
+  //remove filters on click
+  $('body').on('click', '.selected-filters-list .tag-list .tag', function() {
+    $('.filter-list .tags:contains('+ $(this).attr('data-content') +')').removeClass('active')
+    $(this).remove()
   })
 
   $('.selected-filters-list .filter-search').click(function(){
@@ -147,10 +155,26 @@ $(function () {
       visuals.push($(this).html())
     })
 
-    url.searchParams.set("categories", categories.join('+'))
-    url.searchParams.set("technos", technos.join('+'))
-    url.searchParams.set("fields", fields.join('+'))
-    url.searchParams.set("visuals", visuals.join('+'))
+    if (categories.length > 0){
+       url.searchParams.set("categories", categories.join('+'))
+     }else{
+       url.searchParams.delete("categories");
+     }
+    if (technos.length > 0){
+       url.searchParams.set("technos", technos.join('+'))
+     }else{
+       url.searchParams.delete("technos");
+     }
+    if (fields.length > 0){
+       url.searchParams.set("fields", fields.join('+'))
+     }else{
+       url.searchParams.delete("fields");
+     }
+    if (visuals.length > 0){
+       url.searchParams.set("visuals", visuals.join('+'))
+     }else{
+       url.searchParams.delete("visuals");
+     }
 
     url.searchParams.set("page", 1)
     location.href = url
@@ -174,7 +198,7 @@ $(function () {
     document.execCommand('copy')
     tempInput.remove()
 
-    showNotification('link save in your clipboard !')
+    showNotification('link saved in your clipboard !')
   })
 
   function showNotification(text){

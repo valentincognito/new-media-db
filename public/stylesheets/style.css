@@ -218,19 +218,29 @@ h1{width: 180px;margin: 20px auto 40px;}
   overflow: hidden;
 }
 .navigation .selected-filters-list .inner .tag{
+  position: relative;
   display: inline-block;
   margin: 20px 10px;
-  padding: 5px 15px;
+  padding: 5px 20px 5px 15px;
   font-size: 10px;
   font-weight: 800;
   border-radius: 25px;
   text-transform: uppercase;
 }
+.navigation .selected-filters-list .inner .tag:hover{cursor: pointer;}
 .navigation .selected-filters-list .inner .tag.category{background-color: #fa606a;}
 .navigation .selected-filters-list .inner .tag.technology{background-color: #66bd82;}
 .navigation .selected-filters-list .inner .tag.field{background-color: #7b2cb1;}
 .navigation .selected-filters-list .inner .tag.visual{background-color: #f89952;}
 .navigation .selected-filters-list .inner .tag.client{background-color: #d86ab2;}
+.navigation .selected-filters-list .tag-list svg{
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  width: 7px;
+  fill: #fff;
+  transform: translateY(-50%);
+}
 
 .navigation .selected-filters-list .inner .menu{
   position: absolute;
@@ -320,14 +330,23 @@ h1{width: 180px;margin: 20px auto 40px;}
   position: absolute;
   top: 20px;
   right: 20px;
-  width: 40px;
-  fill: #fff;
   z-index: 10;
+  text-align: center;
   transition: all 0.2s ease-in-out;
   visibility: none;
   opacity: 0;
 }
 .references-wrapper .box .copy-link:hover{cursor: copy;}
+.references-wrapper .box .copy-link svg{
+  width: 32px;
+  fill: #fff;
+}
+.references-wrapper .box .copy-link .label{
+  display: block;
+  text-transform: uppercase;
+  font-size: 11px;
+  color: #fff;
+}
 
 .references-wrapper .info{
   padding: 30px 25px 20px 25px;
