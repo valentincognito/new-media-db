@@ -280,6 +280,11 @@ h1{width: 180px;margin: 20px auto 40px;}
   text-transform: uppercase;
 }
 .references-wrapper h3 span{display: inline-block;margin-left: 10px;color: #d2d2d2;}
+.references-wrapper .no-results{
+  width: 100%;
+  padding: 100px 0px 300px;
+  text-align: center;
+}
 .references-wrapper .box{
   position: relative;
   display: inline-block;

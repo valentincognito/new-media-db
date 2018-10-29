@@ -58,6 +58,13 @@ block content
     div.references-wrapper
       h3 latest articles
         span= refCount + ' videos'
+      if(refCount <= 0)
+        div.no-results 
+          | Sorry no results... 
+          br
+          | Looks like you might have gone too crazy with the filters 
+          br
+          | Try removing some !
       each reference in references
         if(reference.thumbnails[0])
           div.box(data-id=reference.id)
