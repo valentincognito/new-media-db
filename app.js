@@ -7,11 +7,21 @@ const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
+const sm = require('sitemap')
 
 var indexRouter = require('./routes/index')
 var mgmtRouter = require('./routes/mgmt')
 
 var app = express()
+
+//sitemap generation
+var sitemap = sm.createSitemap ({
+  hostname: 'https://archive-media.com',
+  cacheTime: 600000,
+  urls: [
+    { url: '/',  changefreq: 'monthly', priority: 0.3 },
+  ]
+})
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
@@ -24,6 +34,17 @@ app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', indexRouter)
+
+//sitemap route
+app.get('/sitemap.xml', function(req, res) {
+  sitemap.toXML( function (err, xml) {
+    if (err) {
+      return res.status(500).end()
+    }
+    res.header('Content-Type', 'application/xml')
+    res.send( xml )
+  })
+})
 
 if ((process.env.ENV) === 'dev') app.use('/mgmt', mgmtRouter)
 
