@@ -58,7 +58,7 @@ router.put('/update_view_count', function(req, res, next) {
 //get all the data needed home page
 async function getHomeData(page, title, categoryList, fieldList, technoList, visualList) {
   //globals
-  let perPage = 6
+  let perPage = 9
 
   //get data to populate the filter menu
   let companies = await Company.find()

@@ -31,7 +31,7 @@ a:hover{outline: 0;text-decoration: none;color: inherit;}
 /* helpers end  */
 
 /** common **/
-h1{width: 180px;margin: 20px auto 40px;}
+h1{width: 180px;margin: 30px auto 30px;}
 
 .header{
   min-width: 1500px;
