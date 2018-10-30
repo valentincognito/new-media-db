@@ -20,10 +20,11 @@ $(function () {
     })
   })
 
-  $( '.title' ).change(function() {
-    $('.thumb-1').val($(this).val() + '/01.jpg')
-    $('.thumb-2').val($(this).val() + '/02.jpg')
-    $('.thumb-3').val($(this).val() + '/03.jpg')
+  $( '.thumb-1' ).change(function() {
+    let root = $(this).val()
+    $('.thumb-1').val(root + '/01.jpg')
+    $('.thumb-2').val(root + '/02.jpg')
+    $('.thumb-3').val(root + '/03.jpg')
   })
 
   $('.tag').click(function(){
