@@ -58,6 +58,19 @@ h1{width: 180px;margin: 20px auto 40px;}
 }
 
 /** admin **/
+.admin h2{
+  color: #3d74f5;
+  text-transform: uppercase;
+}
+.admin button{
+  padding: 6px 10px;
+  font-family: 'Open Sans';
+  color: #fff;
+  text-transform: uppercase;
+  background: #000;
+  border: none;
+  border-radius: 4px;
+}
 .similar-refs span{
   display: block;
   font-size: 12px;
@@ -66,10 +79,38 @@ h1{width: 180px;margin: 20px auto 40px;}
 .project-details{
   margin-bottom: 30px;
 }
+.project-details h4{
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.project-details .row .item{
+  display: inline-block;
+}
+.project-details input{
+  margin-right: 10px;
+  padding: 5px 10px;
+  font-family: 'Open Sans';
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+.project-details textarea{
+  padding: 5px 10px;
+  font-family: 'Open Sans';
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+.project-details select{
+  font-family: 'Open Sans';
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
 .project-details .description{
   width: 300px;
   height: 100px;
 }
+.project-details .url{width: 250px;}
+.project-details .thumbnail{width: 260px;}
 .project-details .tag{
   margin-right: 10px;
   padding: 4px 10px;
@@ -80,6 +121,9 @@ h1{width: 180px;margin: 20px auto 40px;}
 }
 .project-details .tag:hover{
   cursor: pointer;
+}
+.project-details .update-ref{
+  margin-top: 30px;
 }
 
 /** home **/

@@ -1,9 +1,8 @@
 extends ../layout
 
 block content
-  div.content
-    h2
-      a(href="/mgmt") home
+  div.content.admin
+    h2 edit reference
     div.project-details
       h4 title
       input.title(type=text value=reference.title)
@@ -11,8 +10,13 @@ block content
       div.similar-refs
       h4 description
       textarea.description(maxlength="180")= reference.description
-      h4 url
-      input.url(type=text value=reference.url)
+      div.row
+        div.item
+          h4 url
+          input.url(type=text value=reference.url)
+        div.item
+          h4 date
+          input.date(type=text value=reference.date)
       h4 client
       select.company
         each company in companies
@@ -22,8 +26,6 @@ block content
             option(value=company.id selected)= company.name
           else
             option(value=company.id)= company.name
-      h4 date
-      input.date(type=text value=reference.date)
       h4 thumbnails
       input.thumbnail.thumb-1(type=text value=reference.thumbnails[0])
       input.thumbnail.thumb-2(type=text value=reference.thumbnails[1])
@@ -40,7 +42,8 @@ block content
       h4 visuals
       each visual in visuals
         span.tag.visual(class={active: reference.tags.visual.indexOf(visual.id) > -1} data-id=visual.id)= visual.name
-    button.submit submit
+      div.update-ref
+        button.submit submit
       
 block scripts
   script(src="/js/mgmt/update_reference.js")
