@@ -33,8 +33,9 @@ router.get('/update/:referenceId', function(req, res, next) {
 
 router.put('/add_reference', function(req, res, next) {
     reference = new Reference()
-    reference.save()
-    return res.send(reference)
+    reference.save(err => {
+      return res.send(reference)
+    })
 })
 
 router.post('/check_duplicate', function(req, res, next) {
