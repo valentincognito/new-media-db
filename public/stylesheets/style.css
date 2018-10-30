@@ -201,6 +201,7 @@ h1{width: 180px;margin: 20px auto 40px;}
   text-align: right;
   border: none;
   outline: none;
+  background: #fcfcfc;
 }
 .navigation .title-search input::placeholder {
   color: #ccc;
