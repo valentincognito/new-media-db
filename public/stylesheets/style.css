@@ -471,3 +471,129 @@ h1{width: 180px;margin: 30px auto 30px;}
   fill: #dadada;
 }
 .footer .inner .authors p{margin: 0px;font-family: 'Open Sans';color: #dadada;}
+
+@media only screen and (max-width: 992px) {
+  .header{
+    min-width: 100%;
+    width: 100%;
+  }
+  .navigation{
+    min-width: 100%;
+    width: 100%;
+    padding: 0px 20px 0px 0px;
+  }
+  .navigation .search-bar{
+    min-width: 100%;
+    width: 100%;
+  }
+  .navigation .search-bar .filter-menu li {
+    min-width: 120px;
+    padding: 25px;
+    font-size: 12px;
+  }
+  .navigation .filter-list{
+    padding: 35px 0px;
+  }
+  .navigation .filter-list .inner {
+    min-width: 100%;
+    width: 100%;
+  }
+  .navigation .filter-list .inner .tags{
+    padding: 15px 30px;
+    font-size: 24px;
+  }
+  .navigation .selected-filters-list .inner {
+    min-width: 100%;
+    width: 100%;
+  }
+  .navigation .selected-filters-list .tag-list {
+    width: 75%;
+  }
+  .content{
+    min-width: 100%;
+    width: 100%;
+    padding: 20px;
+  }
+  .references-wrapper{
+    min-width: 100%;
+    width: 100%;
+    text-align: center;
+  }
+  .references-wrapper h3 {
+    margin: 20px 0px 10px;
+  }
+  .footer .inner{
+    min-width: 100%;
+    width: 100%;
+  }
+}
+
+
+@media only screen and (max-width: 768px) {
+  .navigation {
+    padding: 0px;
+  }
+  .navigation .title-search {
+    display: none;
+  }
+  .navigation .search-bar .filter-menu li {
+    min-width: 0;
+    width: 25%;
+    padding: 15px 0px;
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 475px) {
+  .navigation .selected-filters-list .tag-list {
+    height: 50px;
+  }
+  .selected-filters-list .filter-search {
+    padding: 13px;
+  }
+  .navigation .selected-filters-list .tag-list {
+    visibility: hidden;
+  }
+  .selected-filters-list .filter-search svg {
+    vertical-align: -3px;
+  }
+  .selected-filters-list .filter-search span {
+    font-size: 14px;
+  }
+  .navigation .search-bar .filter-menu li svg {
+    margin-left: 5px;
+  }
+  .navigation .search-bar .filter-menu li {
+    font-weight: 700;
+    font-size: 11px;
+  }
+  .navigation .filter-list .inner .tags {
+    padding: 8px 15px;
+    font-size: 16px;
+  }
+  .references-wrapper h3 {
+    padding: 0px;
+  }
+  .references-wrapper .box {
+    width: 100%;
+    margin: 0px;
+    margin-bottom: 20px;
+  }
+  .references-wrapper .box .overlay {
+    display: none;
+  }
+  .references-wrapper .box .thumbnail-outer img {
+    width: 100%;
+  }
+  .references-wrapper .info h2 {
+    height: 55px;
+    font-size: 22px;
+    line-height: 27px;
+    letter-spacing: -1px;
+  }
+  .references-wrapper .tags span {
+    margin-right: 10px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+}
