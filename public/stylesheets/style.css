@@ -449,7 +449,7 @@ h1{width: 180px;margin: 30px auto 30px;}
 .pagination .number.active{color: #000;}
 
 .footer{
-  width: 100%;
+  min-width: 1500px;
   background-color: #282828;
 }
 .footer .inner{
@@ -472,7 +472,7 @@ h1{width: 180px;margin: 30px auto 30px;}
 }
 .footer .inner .authors p{margin: 0px;font-family: 'Open Sans';color: #dadada;}
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 1440px) {
   .header{
     min-width: 100%;
     width: 100%;
@@ -521,6 +521,10 @@ h1{width: 180px;margin: 30px auto 30px;}
   }
   .references-wrapper h3 {
     margin: 20px 0px 10px;
+  }
+  .footer{
+    min-width: 100%;
+    width: 100%;
   }
   .footer .inner{
     min-width: 100%;
