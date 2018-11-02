@@ -406,10 +406,16 @@ h1{width: 180px;margin: 30px auto 30px;}
   color: #d2d2d2;
   border-bottom: 1px dotted #ccc;
 }
-.references-wrapper .date{float: left;}
+.references-wrapper .date{float: left;padding: 2px 0px;}
 .references-wrapper .date svg{width: 14px;margin-right: 8px;vertical-align: -2px;fill: #d6d6d6;}
-.references-wrapper .views{float: right;}
-.references-wrapper .views svg{width: 14px;margin-right: 4px;vertical-align: -2px;fill: #d6d6d6;}
+.references-wrapper .views{
+  float: right;
+  padding: 2px 8px;
+  font-size: 11px;
+  text-transform: uppercase;
+  border: 1px solid #e2e2e2;
+}
+.references-wrapper .views a:hover{color: #525252;}
 .references-wrapper .tags{
   text-align: left;
   text-transform: uppercase;
