@@ -273,6 +273,8 @@ h1{width: 180px;margin: 30px auto 30px;}
   text-transform: uppercase;
 }
 .navigation .selected-filters-list .inner .tag:hover{cursor: pointer;}
+.navigation .selected-filters-list .inner .tag.title{color: #000;background-color: #fff;}
+.navigation .selected-filters-list .inner .tag.title svg{fill: #000;}
 .navigation .selected-filters-list .inner .tag.category{background-color: #fa606a;}
 .navigation .selected-filters-list .inner .tag.technology{background-color: #66bd82;}
 .navigation .selected-filters-list .inner .tag.field{background-color: #7b2cb1;}
@@ -338,7 +340,10 @@ h1{width: 180px;margin: 30px auto 30px;}
 .references-wrapper .no-results{
   width: 100%;
   padding: 100px 0px 300px;
+  font-size: 13px;
+  line-height: 26px;
   text-align: center;
+  color: #a7a7a7;
 }
 .references-wrapper .box{
   position: relative;
@@ -434,7 +439,7 @@ h1{width: 180px;margin: 30px auto 30px;}
 .pagination .inner{
   position: relative;
   width: 200px;
-  margin: 30px auto 0px;
+  margin: 30px auto 30px;
   font-size: 11px;
   font-weight: 800;
   text-align: center;
@@ -486,7 +491,9 @@ h1{width: 180px;margin: 30px auto 30px;}
   .navigation{
     min-width: 100%;
     width: 100%;
-    padding: 0px 20px 0px 0px;
+  }
+  .navigation .title-search{
+    right: 20px;
   }
   .navigation .search-bar{
     min-width: 100%;
@@ -518,7 +525,7 @@ h1{width: 180px;margin: 30px auto 30px;}
   .content{
     min-width: 100%;
     width: 100%;
-    padding: 20px;
+    padding: 10px;
   }
   .references-wrapper{
     min-width: 100%;

@@ -47,14 +47,6 @@ router.get('/', function(req, res, next) {
     }).catch(error => console.error(error.stack))
 })
 
-router.put('/update_view_count', function(req, res, next) {
-    let reference = Reference.findById(req.body.referenceId)
-
-    let ip = req.connection.remoteAddress
-
-    return res.send(ip)
-})
-
 //get all the data needed home page
 async function getHomeData(page, title, categoryList, fieldList, technoList, visualList) {
   //globals

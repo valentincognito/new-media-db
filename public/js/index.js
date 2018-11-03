@@ -12,6 +12,7 @@ $(function () {
   let selectedTechnos = url.searchParams.get("technos")
   let selectedFields = url.searchParams.get("fields")
   let selectedVisuals = url.searchParams.get("visuals")
+  let selectedTitle = url.searchParams.get("title")
 
   if (selectedCategories) selectedCategories = selectedCategories.split("+")
   if (selectedTechnos) selectedTechnos = selectedTechnos.split("+")
@@ -23,6 +24,12 @@ $(function () {
   filters.push({label: selectedTechnos, parent: 'technology'})
   filters.push({label: selectedFields, parent: 'field'})
   filters.push({label: selectedVisuals, parent: 'visual'})
+
+  //add the research by title tag
+  if (selectedTitle) {
+    $('.selected-filters-list').show()
+    $('.selected-filters-list .inner .tag-list').append('<span class="tag title" data-content="'+ selectedTitle +'">"'+ selectedTitle + '"'+ svgCloseIcon +'</span>')
+  }
 
   for (cat of filters) {
     if (cat.label != null) {
@@ -74,17 +81,6 @@ $(function () {
     }
   })
 
-  $('.box').click(function(){
-    $.ajax({
-      url: '/update_view_count',
-      type: 'PUT',
-      data: { referenceId: $(this).attr('data-id') },
-      success: function(data) {
-        //console.log(data.toString());
-      }
-    })
-  })
-
   //search by title on enter key
   $('.title-search input').on('keyup', function (e) {
     if (e.keyCode == 13) {
@@ -132,6 +128,11 @@ $(function () {
 
   //remove filters on click
   $('body').on('click', '.selected-filters-list .tag-list .tag', function() {
+    if ( $(this).hasClass('title') ) {
+      url.searchParams.set("page", 1)
+      url.searchParams.delete("title")
+      location.href = url
+    }
     $('.filter-list .tags:contains('+ $(this).attr('data-content') +')').removeClass('active')
     $(this).remove()
   })
@@ -158,22 +159,22 @@ $(function () {
     if (categories.length > 0){
        url.searchParams.set("categories", categories.join('+'))
      }else{
-       url.searchParams.delete("categories");
+       url.searchParams.delete("categories")
      }
     if (technos.length > 0){
        url.searchParams.set("technos", technos.join('+'))
      }else{
-       url.searchParams.delete("technos");
+       url.searchParams.delete("technos")
      }
     if (fields.length > 0){
        url.searchParams.set("fields", fields.join('+'))
      }else{
-       url.searchParams.delete("fields");
+       url.searchParams.delete("fields")
      }
     if (visuals.length > 0){
        url.searchParams.set("visuals", visuals.join('+'))
      }else{
-       url.searchParams.delete("visuals");
+       url.searchParams.delete("visuals")
      }
 
     url.searchParams.set("page", 1)
