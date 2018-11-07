@@ -10,6 +10,7 @@ const bodyParser = require('body-parser')
 const sm = require('sitemap')
 
 var indexRouter = require('./routes/index')
+var blogRouter = require('./routes/blog')
 var mgmtRouter = require('./routes/mgmt')
 
 var app = express()
@@ -34,6 +35,7 @@ app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', indexRouter)
+app.use('/blog', blogRouter)
 
 //sitemap route
 app.get('/sitemap.xml', function(req, res) {

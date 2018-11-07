@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  div.wrapper
+    div.left-pannel
+      h1
+        a(href="/")
+          img(src="/images/common/archimed.png" alt="Archimed")
+      div.list
+        h2 latest articles
+        each article in articles
+          div.last-articles-link
+            a(href="/blog/"+article.url)= article.title
+    div.article-content
+      h2= article.title
+      h4 posted on &nbsp;
+        - let date = new Date(article.date)
+        - let month = date.getMonth() + 1
+        span= month.toString().padStart(2, '0') + "/" + date.getDate().toString().padStart(2, '0') + "/" + date.getFullYear()
+      div.body !{article.body}
+block scripts
+  script(src="/js/index.js")
