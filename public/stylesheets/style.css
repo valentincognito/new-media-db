@@ -481,6 +481,8 @@ h1{width: 180px;margin: 30px auto 30px;}
   margin: 0px 10px;
   fill: #dadada;
 }
+.footer .inner .sns{margin-bottom: 20px;}
+.footer .inner .sns a{display: inline-block;padding: 0px 10px;}
 .footer .inner .authors p{margin: 0px;font-family: 'Open Sans';color: #dadada;}
 
 /* blog */

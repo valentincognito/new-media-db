@@ -21,6 +21,7 @@ var sitemap = sm.createSitemap ({
   cacheTime: 600000,
   urls: [
     { url: '/',  changefreq: 'monthly', priority: 0.3 },
+    { url: '/blog/how-to-become-a-creative-interactive-developer',  changefreq: 'monthly', priority: 0.3 },
   ]
 })
 
