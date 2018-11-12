@@ -2,6 +2,11 @@ const express = require('express')
 const router = express.Router()
 const Article = require('../models/article')
 
+router.get('/', function(req, res, next) {
+  //tmp redirect to lat aritcle
+  res.redirect('blog/how-to-become-a-creative-interactive-developer')
+})
+
 router.get('/:articleShortUrl', function(req, res, next) {
   getArticleData(req.params.articleShortUrl)
     .then(data => {

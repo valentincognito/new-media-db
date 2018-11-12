@@ -555,7 +555,7 @@ h1{width: 180px;margin: 30px auto 30px;}
 
 /* media queries */
 
-@media only screen and (max-width: 1440px) {
+@media only screen and (max-width: 1515px) {
   .header{
     min-width: 100%;
     width: 100%;
