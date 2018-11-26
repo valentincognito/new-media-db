@@ -66,7 +66,7 @@ router.put('/update_reference', function(req, res, next) {
 //get all the references data needed for updating
 async function getReferenceData(id) {
   let reference = await Reference.findById(id)
-  let companies = await Company.find()
+  let companies = await Company.find().sort('name')
   let categories = await Category.find()
   let fields = await Field.find()
   let technos = await Techno.find()

@@ -22,8 +22,6 @@ block content
         each company in companies
           if(reference.company && reference.company._id.toString() == company._id.toString())
             option(value=company.id selected)= company.name
-          else if(company._id.toString() == "5bc9a25095374055c8c1e8bb")
-            option(value=company.id selected)= company.name
           else
             option(value=company.id)= company.name
       h4 thumbnails
