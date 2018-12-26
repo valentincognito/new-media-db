@@ -34,7 +34,7 @@ router.get('/', function(req, res, next) {
   getHomeData(page, title, categoryList, fieldList, technoList, visualList)
     .then(data => {
       return res.render('index', {
-        title: 'Home',
+        title: 'Interactive installation benchmarking',
         refCount: data.refCount,
         refPerPage: data.refPerPage,
         references: data.references,
