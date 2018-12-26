@@ -56,7 +56,7 @@ $(function () {
   $('.box').mouseenter(function(){
     let index = 2
     activeThumb = $('.thumbnail-outer img', this)
-    if (activeThumb != undefined) {
+    if (activeThumb != undefined && activeThumb.attr('src') != "/images/common/ref_placeholder.jpg") {
       activeThumbSrc = activeThumb.attr('src')
       let base = activeThumbSrc.slice(0, -6)
 
@@ -208,5 +208,21 @@ $(function () {
     setTimeout(() => {
       $('.notification').removeClass('open')
     }, 2000);
+  }
+
+  $('.thumbnail-outer img').each(function(index, el) {
+    loadImage(el)
+  })
+
+  function loadImage (el) {
+    let img = new Image()
+    let src = el.getAttribute('data-src')
+    img.src = src
+
+    img.onload = function() {
+      setTimeout(function () {
+        el.src = src
+      }, 200)
+    }
   }
 })
