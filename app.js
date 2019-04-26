@@ -23,6 +23,7 @@ var sitemap = sm.createSitemap ({
   urls: [
     { url: '/',  changefreq: 'monthly', priority: 0.3 },
     { url: '/blog/how-to-become-a-creative-interactive-developer',  changefreq: 'monthly', priority: 0.3 },
+    { url: '/blog/best-interactive-installations-2018',  changefreq: 'monthly', priority: 0.3 },
   ]
 })
 
